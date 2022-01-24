@@ -29,6 +29,10 @@
 		{
 			"Name": "AdvancedSteamSessions",
 			"Enabled": true
+		},
+		{
+			"Name": "FSR",
+			"Enabled": true
 		}
 	]
 }
