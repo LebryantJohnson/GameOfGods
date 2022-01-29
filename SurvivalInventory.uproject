@@ -24,11 +24,11 @@
 		},
 		{
 			"Name": "AdvancedSessions",
-			"Enabled": true
+			"Enabled": false
 		},
 		{
 			"Name": "AdvancedSteamSessions",
-			"Enabled": true
+			"Enabled": false
 		},
 		{
 			"Name": "FSR",
@@ -38,10 +38,6 @@
 			"Name": "EOSCore",
 			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/af157f773f084ca89036cd7bc03fb416"
-		},
-		{
-			"Name": "OnlineSubsystemEOS",
-			"Enabled": true
 		}
 	]
 }
