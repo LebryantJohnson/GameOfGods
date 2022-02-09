@@ -24,7 +24,7 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
     UFUNCTION(BlueprintCallable)
-    void ManaRegen(float ManaIn, float& ManaOut);
+    void ManaRegen(float ManaIn, float Delay, float ManaAdded, float& ManaOut);
 		
 };
 
