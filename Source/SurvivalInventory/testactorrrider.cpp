@@ -24,3 +24,6 @@ void Atestactorrrider::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
+void Atestactorrrider::DoSomethingActor(){
+}
+
