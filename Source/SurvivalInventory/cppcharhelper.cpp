@@ -32,16 +32,5 @@ void Ucppcharhelper::TickComponent(float DeltaTime, ELevelTick TickType, FActorC
 	// ...
 }
 
-//Mana Checker
-void Ucppcharhelper::ManaRegen(float ManaIn, float Delay, float ManaAdded, float& ManaOut){
 
-//check mana less than 100
-
-if(ManaIn<100)
-ManaOut=ManaIn+ManaAdded;
-
-//keep mana at 100 if it is 100
-else
-ManaOut=100;      
-}    
 

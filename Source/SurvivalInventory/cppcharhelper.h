@@ -7,7 +7,7 @@
 #include "cppcharhelper.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( BlueprintType, Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class SURVIVALINVENTORY_API Ucppcharhelper : public UActorComponent
 {
 	GENERATED_BODY()
@@ -15,7 +15,8 @@ class SURVIVALINVENTORY_API Ucppcharhelper : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	Ucppcharhelper();
-
+	UPROPERTY(BlueprintReadWrite)
+	float Strength;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -23,8 +24,6 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-    UFUNCTION(BlueprintCallable)
-    void ManaRegen(float ManaIn, float Delay, float ManaAdded, float& ManaOut);
 		
 };
 
