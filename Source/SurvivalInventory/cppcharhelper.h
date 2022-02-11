@@ -15,8 +15,19 @@ class SURVIVALINVENTORY_API Ucppcharhelper : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	Ucppcharhelper();
+
+	// Base attribute Vars
 	UPROPERTY(BlueprintReadWrite)
-	float Strength;
+	int strength;
+	UPROPERTY(BlueprintReadWrite)
+	int intelligence;
+	UPROPERTY(BlueprintReadWrite)
+	int luck;
+	UPROPERTY(BlueprintReadWrite)
+	int endurance;
+	UPROPERTY(BlueprintReadWrite)
+	int agility;
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
