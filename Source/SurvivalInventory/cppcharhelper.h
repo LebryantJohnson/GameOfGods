@@ -16,6 +16,16 @@ public:
 	// Sets default values for this component's properties
 	Ucppcharhelper();
 
+	// Mana vars
+	UPROPERTY(BlueprintReadOnly)
+	bool Manaismorethan0;
+	UPROPERTY(BlueprintReadWrite)
+	float Mana=100;
+	UPROPERTY()
+	float ManaTotal;
+	UPROPERTY()
+	float ManaAdded=10;
+	
 	// Base attribute Vars
 	UPROPERTY(BlueprintReadWrite)
 	int strength;
@@ -27,7 +37,7 @@ public:
 	int endurance;
 	UPROPERTY(BlueprintReadWrite)
 	int agility;
-
+	
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -35,7 +45,12 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-		
+
+
+	UFUNCTION(BlueprintCallable)
+	void ManaRegen();
+	UFUNCTION(BlueprintCallable)
+		void ManaChecker(float SpellCost);
 };
 
 

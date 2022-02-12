@@ -33,4 +33,34 @@ void Ucppcharhelper::TickComponent(float DeltaTime, ELevelTick TickType, FActorC
 }
 
 
+//Mana Regen
+void Ucppcharhelper::ManaRegen(){
 
+	//check mana less than 100
+
+	if(Mana<100)
+		Mana=Mana+ManaAdded;
+
+	//keep mana at 100 if it is 100
+	else
+		Mana=100;     
+}
+
+// Mana checker and calculate spell cost
+void Ucppcharhelper::ManaChecker(float SpellCost)
+{
+	ManaTotal=Mana-SpellCost;
+
+	if(ManaTotal>0){
+		
+	Mana=ManaTotal;
+	Manaismorethan0=true;
+		
+}	
+	else
+	{
+		Manaismorethan0=false;
+		
+	}
+		
+}

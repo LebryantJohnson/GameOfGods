@@ -18,13 +18,10 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
+	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-    UFUNCTION(BlueprintCallable)
-        void ManaRegen(float ManaIn, float Delay, float ManaAdded, float& ManaOut);
-    UFUNCTION(BlueprintPure)
-        void ManaChecker(float ManaIn, float SpellCost,bool& Is0, float& ManaTotal, float& ManaOut);
 
 
 
