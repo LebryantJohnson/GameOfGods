@@ -4,42 +4,38 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "cppcharhelper.generated.h"
+#include "XPComponent.generated.h"
 
 
-UCLASS( BlueprintType, Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class SURVIVALINVENTORY_API Ucppcharhelper : public UActorComponent
+UCLASS(BlueprintType, Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+class SURVIVALINVENTORY_API UXPComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
 	// Sets default values for this component's properties
-	Ucppcharhelper();
-    
-    UPROPERTY(BlueprintReadWrite)
-	int SpendableLevels;
-    
-	// Mana vars
-	UPROPERTY(BlueprintReadOnly)
-	bool Manaismorethan0;
+	UXPComponent();
+
 	UPROPERTY(BlueprintReadWrite)
-	float Mana=100;
+	int currentlevel=1;
+
+	UPROPERTY(BlueprintReadWrite)
+	int levelcap=20;
+
+	UPROPERTY(BlueprintReadWrite)
+	float currentxp;
+
+	UPROPERTY(BlueprintReadWrite)
+	float currentmaxXP=500;
+
+	UPROPERTY(BlueprintReadWrite)
+	float bufferxp;
+
+	UPROPERTY(BlueprintReadWrite)
+	float currentpercentage;
+
 	UPROPERTY()
-	float ManaTotal;
-	UPROPERTY()
-	float ManaAdded=10;
-	
-	// Base attribute Vars
-	UPROPERTY(BlueprintReadWrite)
-	int strength;
-	UPROPERTY(BlueprintReadWrite)
-	int intelligence;
-	UPROPERTY(BlueprintReadWrite)
-	int luck;
-	UPROPERTY(BlueprintReadWrite)
-	int endurance;
-	UPROPERTY(BlueprintReadWrite)
-	int agility;
+	float RemainingXP;
 	
 protected:
 	// Called when the game starts
@@ -49,11 +45,15 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	UFUNCTION(BlueprintCallable)
+	void CalculatePercentage();
 
 	UFUNCTION(BlueprintCallable)
-	void ManaRegen();
+	void CalculateMaxXp();
+
 	UFUNCTION(BlueprintCallable)
-		void ManaChecker(float SpellCost);
+	void AddXP(float AddedXP);
+
+	UFUNCTION(BlueprintCallable)
+	void LevelUp();
 };
-
-
