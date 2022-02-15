@@ -20,6 +20,8 @@ void Ucppcharhelper::BeginPlay()
 	Super::BeginPlay();
 
 	// ...
+	GetOwner()->GetWorldTimerManager().SetTimer(TimerHandle, this, &Ucppcharhelper::ManaRegen, 3.0f, true, 0.0f);
+
 	
 }
 
@@ -30,37 +32,52 @@ void Ucppcharhelper::TickComponent(float DeltaTime, ELevelTick TickType, FActorC
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// ...
+	
 }
 
 
 //Mana Regen
-void Ucppcharhelper::ManaRegen(){
-
+void Ucppcharhelper::ManaRegen()
+{
 	//check mana less than 100
 
-	if(Mana<100)
+	if(Mana<100){
 		Mana=Mana+ManaAdded;
-
+	ClientUpdateMana(Mana);
+}
 	//keep mana at 100 if it is 100
 	else
-		Mana=100;     
+	{
+		Mana=100;
+		ClientUpdateMana(Mana);
+	}
 }
+
 
 // Mana checker and calculate spell cost
 void Ucppcharhelper::ManaChecker(float SpellCost)
 {
 	ManaTotal=Mana-SpellCost;
 
-	if(ManaTotal>0){
+	if(ManaTotal>=0){
 		
 	Mana=ManaTotal;
 	Manaismorethan0=true;
+	ClientUpdateMana(Mana);
 		
 }	
 	else
 	{
 		Manaismorethan0=false;
+		ClientUpdateMana(Mana);
 		
 	}
 		
 }
+//update client's mana
+void Ucppcharhelper::ClientUpdateMana_Implementation(float ManaToSet)
+{
+	ManaToSet=Mana;
+}
+
+

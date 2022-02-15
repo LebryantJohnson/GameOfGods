@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Runtime/Engine/Public/EngineGlobals.h"
 #include "cppcharhelper.generated.h"
 
 
@@ -53,7 +54,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ManaRegen();
 	UFUNCTION(BlueprintCallable)
-		void ManaChecker(float SpellCost);
+	void ManaChecker(float SpellCost);
+	UFUNCTION(Client, Reliable)
+	void ClientUpdateMana(float ManaToSet);
+	
+	FTimerHandle TimerHandle;
+
 };
 
 
