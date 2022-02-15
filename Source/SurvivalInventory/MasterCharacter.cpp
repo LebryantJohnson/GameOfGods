@@ -3,6 +3,8 @@
 
 #include "MasterCharacter.h"
 
+#include <string>
+
 // Sets default values
 AMasterCharacter::AMasterCharacter()
 {
@@ -34,6 +36,44 @@ void AMasterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
     
     
 }
+
+void AMasterCharacter::Multic_MeleeMontages_Implementation(UAnimMontage* anim, UAnimMontage* anim1, UAnimMontage* anim2,
+	UAnimMontage* anim3, UAnimMontage* anim4)
+{
+	PlayAnimMontage(anim,1);
+}
+
+void AMasterCharacter::Server_StabMontage_Implementation(UAnimMontage* anim, UAnimMontage* anim1, UAnimMontage* anim2,
+														UAnimMontage* anim3, UAnimMontage* anim4)
+{
+	Multic_MeleeMontages(anim,anim1,anim2,anim3,anim4);
+}
+
+void AMasterCharacter::Server_GetMeleeMontages_Implementation(UAnimMontage* anim, UAnimMontage* anim1,
+                                                              UAnimMontage* anim2, UAnimMontage* anim3, UAnimMontage* anim4, bool itemisheld)
+{
+	if (itemisheld)
+	{
+		Server_StabMontage(anim,anim1,anim2,anim3,anim4);
+	}
+}
+
+
+
+void AMasterCharacter::Server_SpawnSpell_Implementation(UClass* ClassIn, FVector SpawnTransform, AActor* OwnerIn, APawn* pawnIn, FRotator RotIn)
+{
+	const FVector Location=SpawnTransform;
+	UClass* ClassToSpawn=ClassIn;
+	const FRotator rotation=RotIn;
+
+	FActorSpawnParameters Params;
+	Params.Owner = OwnerIn;
+	Params.Instigator = pawnIn;
+	
+	GetWorld()->SpawnActor<AActor>(ClassToSpawn, Location, rotation, Params);
+	
+}
+
 
 
 
