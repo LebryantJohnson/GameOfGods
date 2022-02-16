@@ -3,8 +3,6 @@
 
 #include "MasterCharacter.h"
 
-#include <string>
-
 // Sets default values
 AMasterCharacter::AMasterCharacter()
 {
@@ -41,6 +39,7 @@ void AMasterCharacter::Multic_MeleeMontages_Implementation(UAnimMontage* anim, U
 	UAnimMontage* anim3, UAnimMontage* anim4)
 {
 	PlayAnimMontage(anim,1);
+	AttackCount=AttackCount++;
 }
 
 void AMasterCharacter::Server_StabMontage_Implementation(UAnimMontage* anim, UAnimMontage* anim1, UAnimMontage* anim2,
@@ -55,6 +54,7 @@ void AMasterCharacter::Server_GetMeleeMontages_Implementation(UAnimMontage* anim
 	if (itemisheld)
 	{
 		Server_StabMontage(anim,anim1,anim2,anim3,anim4);
+		
 	}
 }
 
@@ -71,6 +71,7 @@ void AMasterCharacter::Server_SpawnSpell_Implementation(UClass* ClassIn, FVector
 	Params.Instigator = pawnIn;
 	
 	GetWorld()->SpawnActor<AActor>(ClassToSpawn, Location, rotation, Params);
+	
 	
 }
 

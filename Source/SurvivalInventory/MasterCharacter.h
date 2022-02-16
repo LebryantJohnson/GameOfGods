@@ -18,7 +18,9 @@ public:
 
 
 	UPROPERTY(BlueprintReadWrite)
-	int AttackCount;	
+	int AttackCount;
+
+	UAnimMontage* currentmontage;
 private:
 protected:
 	// Called when the game starts or when spawned
