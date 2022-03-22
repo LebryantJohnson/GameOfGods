@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "Runtime/Engine/Public/EngineGlobals.h"
 #include "cppcharhelper.generated.h"
 
 
@@ -16,10 +15,6 @@ class SURVIVALINVENTORY_API Ucppcharhelper : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	Ucppcharhelper();
-    
-    UPROPERTY(BlueprintReadWrite)
-	int SpendableLevels;
-    
 	// Mana vars
 	UPROPERTY(BlueprintReadOnly)
 	bool Manaismorethan0;
@@ -32,16 +27,17 @@ public:
 	
 	// Base attribute Vars
 	UPROPERTY(BlueprintReadWrite)
-	int strength;
+	int strength=1;
 	UPROPERTY(BlueprintReadWrite)
-	int intelligence;
+	int intelligence=1;
 	UPROPERTY(BlueprintReadWrite)
-	int luck;
+	int luck=1;
 	UPROPERTY(BlueprintReadWrite)
-	int endurance;
+	int endurance=1;
 	UPROPERTY(BlueprintReadWrite)
-	int agility;
-	
+	int agility=1;
+	UPROPERTY(BlueprintReadWrite)
+	int unusedlevels=1;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
