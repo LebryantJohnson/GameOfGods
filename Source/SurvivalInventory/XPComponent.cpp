@@ -60,7 +60,7 @@ void UXPComponent::LevelUp()
 	else
 	{
 		currentlevel++;
-		
+		UnSpentLevels++;
 		RemainingXP=bufferxp=currentmaxXP;
 		CalculateMaxXp();
 		currentxp=0;

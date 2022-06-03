@@ -74,6 +74,13 @@ void Ucppcharhelper::ManaChecker(float SpellCost)
 	}
 		
 }
+
+void Ucppcharhelper::StrengthButton()
+{
+	
+}
+
+
 //update client's mana
 void Ucppcharhelper::ClientUpdateMana_Implementation(float ManaToSet)
 {

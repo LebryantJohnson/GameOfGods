@@ -37,7 +37,7 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	int agility=1;
 	UPROPERTY(BlueprintReadWrite)
-	int unusedlevels=1;
+	int Vitality=1;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -53,6 +53,8 @@ public:
 	void ManaChecker(float SpellCost);
 	UFUNCTION(Client, Reliable)
 	void ClientUpdateMana(float ManaToSet);
+	UFUNCTION(BlueprintCallable)
+	void StrengthButton();
 	
 	FTimerHandle TimerHandle;
 

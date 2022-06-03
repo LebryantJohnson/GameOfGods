@@ -36,6 +36,9 @@ public:
 
 	UPROPERTY()
 	float RemainingXP;
+
+	UPROPERTY(BlueprintReadWrite)
+	int UnSpentLevels=1;
 	
 protected:
 	// Called when the game starts
